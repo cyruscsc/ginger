@@ -41,13 +41,15 @@ export class Model<T extends HasId> {
   fetch(): void {
     const id = this.get('id');
     if (!id) throw new Error('Cannot fetch without an id');
-    this.sync.fetch(id).then((res: AxiosResponse): void => this.set(res.data));
+    this.sync
+      .fetch(id)
+      .then((response: AxiosResponse): void => this.set(response.data));
   }
 
   save(): void {
     this.sync
       .save(this.getAll())
-      .then((res: AxiosResponse): void => this.trigger('save'))
+      .then((response: AxiosResponse): void => this.trigger('save'))
       .catch(() => this.trigger('error'));
   }
 }
