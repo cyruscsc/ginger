@@ -1,16 +1,22 @@
 {
+  "name": "ginger",
+  "version": "0.1.0",
+  "description": "An old-fashioned lightweight (rudimentary actually) TypeScript client-side web framework",
+  "author": {
+    "name": "Cyrus Chan"
+  },
   "dependencies": {
     "axios": "^1.5.1",
-    "concurrently": "^8.2.1",
     "parcel": "^2.10.0"
   },
   "scripts": {
-    "start": "concurrently npm:start:*",
-    "start:db": "node_modules/.bin/json-server -w db.json",
-    "start:parcel": "npx parcel index.html"
+    "dev": "concurrently npm:dev:*",
+    "dev:db": "node_modules/.bin/json-server -w db.json",
+    "dev:parcel": "npx parcel index.html"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
+    "concurrently": "^8.2.1",
     "json-server": "^0.17.4"
   }
 }
